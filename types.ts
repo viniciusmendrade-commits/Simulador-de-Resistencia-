@@ -1,0 +1,43 @@
+
+import type React from 'react';
+
+export enum BuildingComponentId {
+  Beams = 'beams',
+  Roof = 'roof',
+  Floor = 'floor',
+  Walls = 'walls',
+  Glass = 'glass',
+  Pillars = 'pillars',
+}
+
+export enum MaterialTypeId {
+  Weak = 'weak',
+  Medium = 'medium',
+  Strong = 'strong',
+}
+
+export enum DisasterId {
+  Tsunami = 'tsunami',
+  Hurricane = 'hurricane',
+  Earthquake = 'earthquake',
+}
+
+export interface Material {
+  name: string;
+  resistance: number;
+  color: string;
+}
+
+export interface ComponentConfig {
+  label: string;
+  materials: Record<MaterialTypeId, Material>;
+}
+
+export interface Disaster {
+  label: string;
+  power: number;
+  Icon: React.FC<{ className?: string }>;
+}
+
+export type BuildingState = Record<BuildingComponentId, MaterialTypeId>;
+export type ComponentHealth = Record<BuildingComponentId, number>;
